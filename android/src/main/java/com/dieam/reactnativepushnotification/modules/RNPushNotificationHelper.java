@@ -30,15 +30,13 @@ public class RNPushNotificationHelper {
     }
 
     public Class getMainActivityClass() {
-      String packageName = mContext.getPackageName();
-      Intent launchIntent = mContext.getPackageManager().getLaunchIntentForPackage(packageName);
-      String className = launchIntent.getComponent().getClassName();
-      try {
-          return Class.forName(className);
-      } catch (ClassNotFoundException e) {
-          e.printStackTrace();
-          return null;
-      }
+        try {
+            String packageName = mApplication.getPackageName();
+            return Class.forName(packageName + ".MainActivity");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private AlarmManager getAlarmManager() {
