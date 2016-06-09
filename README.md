@@ -63,6 +63,15 @@ In your `AndroidManifest.xml`
 
 ```
 
+In `android/src/main/res/values/strings.xml`
+```xml
+<resources>
+    ...
+
+    <string name="google_app_id" translatable="false">YOUR_GCM_SENDER_ID</string>
+</resources>
+```
+
 In `android/settings.gradle`
 ```gradle
 ...
