@@ -43,9 +43,10 @@ public class RNPushNotificationListenerService extends GcmListenerService {
         Intent intent = new Intent("RNPushNotificationReceiveNotification");
         bundle.putBoolean("foreground", isRunning);
         intent.putExtra("notification", bundle);
-        sendBroadcast(intent);
 
-        if (!isRunning) {
+        if (isRunning) {
+            sendBroadcast(intent);
+        } else {
             new RNPushNotificationHelper(getApplication(), this).sendNotification(bundle);
         }
     }
